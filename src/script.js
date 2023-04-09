@@ -1,11 +1,11 @@
 const { Agenda } = require('@hokify/agenda');
 const { MongoClient } = require('mongodb');
 
-const mongoConnectionString = 'mongodb://localhost:27017/agenda';
+const mongoConnectionString = 'mongodb://user:user@localhost:27017/agenda';
 
 (async function() {
   const client = await MongoClient.connect(mongoConnectionString, { useNewUrlParser: true, useUnifiedTopology: true });
-  const db = client.db();
+  const db = client.db('agenda');
 
 
   const agenda = new Agenda({ mongo: db });
